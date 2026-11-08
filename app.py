@@ -223,7 +223,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Load dataset
-df = pd.read_csv("CONSUMER_ELECTRICITY_PRO.csv")
+df = pd.read_csv("/content/CONSUMER_ELECTRICITY_PRO.csv")
 
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
 
