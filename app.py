@@ -223,7 +223,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Load dataset
-df = pd.read_csv("CONSUMER_ELECTRICITY_PRO.csv")
+df = pd.read_csv("/content/CONSUMER_ELECTRICITY_PRO.csv")
 
 df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
 
@@ -651,7 +651,7 @@ with tab3:
         columns=features
     )
 
-    fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+    fig, ax = plt.subplots(1, 2, figsize=(6, 3))
 
     sns.boxplot(data=X, ax=ax[0], color="#60A5FA")
     ax[0].set_title("Before Scaling", fontsize=15, fontweight="bold")
@@ -664,7 +664,7 @@ with tab3:
     ax[1].tick_params(axis="x", rotation=35, labelsize=9)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.divider()
@@ -675,7 +675,7 @@ with tab3:
     k_values = [1, 2, 3, 4, 5, 6]
     inertia_values = [64285, 36757, 27170, 20327, 17612, 15360]
 
-    fig, ax = plt.subplots(figsize=(8, 3.5))
+    fig, ax = plt.subplots(figsize=(6, 3))
 
     ax.plot(
         k_values,
@@ -702,7 +702,7 @@ with tab3:
     ax.grid(True, alpha=0.25)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.info("The elbow point suggests selecting K = 4.")
@@ -719,7 +719,7 @@ with tab3:
         0.3727, 0.3623, 0.3448, 0.3485, 0.3638
     ]
 
-    fig, ax = plt.subplots(figsize=(8, 3.5))
+    fig, ax = plt.subplots(figsize=(6, 3))
 
     ax.plot(
         k_values,
@@ -750,7 +750,7 @@ with tab3:
     ax.grid(True, alpha=0.25)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.success("K = 4 gives the highest Silhouette Score.")
@@ -777,7 +777,7 @@ with tab4:
 
     cluster_counts = household_df["Cluster"].value_counts().sort_index()
 
-    fig, ax = plt.subplots(figsize=(7, 4))
+    fig, ax = plt.subplots(figsize=(6, 3.5))
 
     bars = ax.bar(
         cluster_counts.index.astype(str),
@@ -796,7 +796,7 @@ with tab4:
     ax.set_axisbelow(True)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.divider()
@@ -808,7 +808,7 @@ with tab4:
         "Energy_Consumption_kWh"
     ].mean()
 
-    fig, ax = plt.subplots(figsize=(7, 4))
+    fig, ax = plt.subplots(figsize=(6, 3.5))
 
     bars = ax.bar(
         cluster_avg.index.astype(str),
@@ -827,7 +827,7 @@ with tab4:
     ax.set_axisbelow(True)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.divider()
@@ -844,7 +844,7 @@ with tab4:
         "Cluster": household_df["Cluster"].values
     })
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(7, 4))
 
     cluster_colors = [
         "#3B82F6", "#10B981", "#F59E0B", "#8B5CF6"
@@ -872,7 +872,7 @@ with tab4:
     ax.grid(alpha=0.2)
 
     fig.tight_layout()
-    st.pyplot(fig, use_container_width=False)
+    st.pyplot(fig, width=550)
     plt.close(fig)
 
     st.divider()
